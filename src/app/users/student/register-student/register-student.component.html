@@ -1,0 +1,20 @@
+<form (ngSubmit)="registerStudent()">
+  <div class="container">
+    <h1>Register</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+    <label for="name"><b>Name</b></label>
+    <input type="text" id="name" placeholder="Enter Name" [(ngModel)]="newStudent.name" name="name" required>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" id="email" placeholder="Enter Email" [(ngModel)]="newStudent.email" name="email" required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" id="password" placeholder="Enter Password" [(ngModel)]="newStudent.password" name="password" required>
+
+    <hr>
+    <button type="submit" class="registerbtn">Register</button>
+  </div>
+</form>
+

@@ -1,0 +1,184 @@
+/* Reuse General Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    color: #333;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 12px;
+    margin: 40px auto;
+    max-width: 900px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(135deg, #f5f7f9, #c3cfe2);
+  }
+  
+  header {
+    text-align: center;
+    padding-bottom: 25px;
+    border-bottom: 3px solid #007bff; /* Blue border for header */
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 800;
+    color: #007bff; /* Blue text color */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #007bff, #0056b3);
+    -webkit-background-clip: text; /* Vendor prefix for WebKit browsers */
+    background-clip: text; /* Standard property for compatibility */
+    -webkit-text-fill-color: transparent; /* Vendor prefix for WebKit browsers */
+  }
+  
+  /* Form Group Specific Styling */
+  .form-group {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  /* Input Styling */
+  input[type="text"], 
+  textarea, 
+  select {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f4f7fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+  }
+  
+  input[type="text"]:focus {
+    background-color: #ffffff;
+    border: 2px solid #007bff; /* Blue border on focus */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    outline: none;
+    animation: borderPulse 1s infinite;
+  }
+  
+  /* Border Animation */
+  @keyframes borderPulse {
+    0% {
+      border-color: #007bff;
+    }
+    50% {
+      border-color: #0056b3;
+    }
+    100% {
+      border-color: #007bff;
+    }
+  }
+  
+  /* General Button Styling */
+  button {
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Blue gradient for default buttons */
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.3s;
+  }
+  
+  button:hover {
+    background: linear-gradient(135deg, #0056b3, #007bff); /* Darker blue on hover */
+    transform: scale(1.05);
+  }
+  
+  button.add-btn {
+    background: linear-gradient(135deg, #4caf50, #2a9d8f); /* Green gradient for add buttons */
+    margin-bottom: 10px; /* Space below the add button */
+  }
+  
+  button.add-btn:hover {
+    background: linear-gradient(135deg, #2a9d8f, #4caf50);
+  }
+  
+  button.remove-btn {
+    background: linear-gradient(135deg, #e53935, #c62828); /* Red gradient for remove buttons */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px; /* Space above the remove button */
+  }
+  
+  button.remove-btn:hover {
+    background: linear-gradient(135deg, #c62828, #e53935);
+  }
+  
+  button.submit-btn {
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Blue gradient for submit button */
+    margin-top: 20px; /* Space above the submit button */
+  }
+  
+  button.submit-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #007bff);
+  }
+  
+  /* Button Container Styling */
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between buttons in the container */
+  }
+  
+  /* Form Actions */
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  /* Error and Success Messages */
+  .error-message {
+    color: #e53935; /* Red color for error messages */
+    font-weight: 700;
+    margin-top: 10px;
+  }
+  
+  .success-message {
+    color: #2e7d32; /* Green color for success messages */
+    font-weight: 700;
+    margin-top: 10px;
+  }
+  
+  /* Resource Form Styling */
+  .resource-form {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+  }
+  
+  .resource-form:hover {
+    background-color: #f0f4f8;
+  }
+  

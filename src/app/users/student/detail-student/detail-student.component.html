@@ -1,0 +1,25 @@
+<div class="student-details-container">
+  <header class="student-header">
+    <h1>Student Details</h1>
+  </header>
+
+  <div class="student-info">
+    <h2>{{ currentStudent?.name }}</h2>
+    <p class="student-field"><strong>Email: </strong> {{ currentStudent?.email }}</p>
+    <p class="student-field"><strong>Grade Level: </strong> {{ currentStudent?.gradeLevel?.levelName }}</p>
+    <p class="student-field"><strong>Enrollment Date: </strong> {{ currentStudent?.dateJoined | date }}</p>
+  </div>
+
+  <section *ngIf="studentParent" class="parent-info">
+    <header class="parent-header">
+      <h2>Parent Details</h2>
+    </header>
+    <p class="parent-field"><strong>Name: </strong> {{ studentParent.name }}</p>
+    <p class="parent-field"><strong>Email: </strong> {{ studentParent.email }}</p>
+    <p class="parent-field"><strong>Phone: </strong> {{ studentParent.contactNumber }}</p>
+  </section>
+
+  <div *ngIf="!currentStudent || !studentParent" class="loading-container">
+    <p class="loading-message">Loading student details...</p>
+  </div>
+</div>

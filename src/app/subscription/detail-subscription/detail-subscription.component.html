@@ -1,0 +1,38 @@
+<div class="student-details-container">
+  <header class="student-header">
+    <h1>Details</h1>
+  </header>
+
+  <div >
+    <!-- Display a loading indicator or error message -->
+    <ng-container *ngIf="loading">
+      <p class="loading-message">Loading...</p>
+    </ng-container>
+    <ng-container *ngIf="error">
+      <p class="error-message">{{ error }}</p>
+    </ng-container>
+
+    <!-- Displaying the student details if data is available -->
+    <ng-container *ngIf="currentSubscription">
+      <div class="student-info">
+        <h2>{{ currentSubscription.payment?.student?.name }}</h2>
+        <p class="student-field"><strong>Email:</strong> {{ currentSubscription.payment?.student?.email }}</p>
+        <p class="student-field"><strong>Grade Level:</strong> {{ currentSubscription.payment?.grade?.levelName }}</p>
+        <p class="student-field"><strong>Type:</strong> {{ currentSubscription.type }}</p>
+        <p class="student-field"><strong>Date Start:</strong> {{ currentSubscription.startDate | date }}</p>
+        <p class="student-field"><strong>Date End:</strong> {{ currentSubscription.endDate | date }}</p>
+        <p class="student-field"><strong>Amount:</strong> {{ currentSubscription.payment?.amount }} Dh</p>
+      </div>
+
+      <!-- Displaying parent details if available -->
+      <div class="parent-info">
+        <header class="parent-header">
+          <h1>Parent Details</h1>
+        </header>
+        <p class="parent-field"><strong>Name:</strong> {{ currentSubscription.payment?.student?.parent?.name }}</p>
+        <p class="parent-field"><strong>Email:</strong> {{ currentSubscription.payment?.student?.parent?.email }}</p>
+        <p class="parent-field"><strong>Phone:</strong> {{ currentSubscription.payment?.student?.parent?.contactNumber }}</p>
+      </div>
+    </ng-container>
+  </div>
+</div>

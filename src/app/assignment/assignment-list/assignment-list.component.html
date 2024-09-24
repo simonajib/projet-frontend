@@ -1,0 +1,46 @@
+<div class="course-management">
+    <header>
+      <h1>Assignment</h1>
+    </header>
+  
+   <br>
+  
+    <!-- Search bar -->
+    <div class="search-bar">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        (input)="filterAssignment()"
+        placeholder="Search for courses..."/>
+    </div>
+  
+    <table>
+      <thead>
+        <tr>
+          
+         
+          <th>Assignment Title</th>
+          <th>Description</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let assignment of filteredAssignment | paginate: { itemsPerPage: 5, currentPage: p }">
+      
+          <td>{{ assignment.title}}</td>
+          <td>{{  assignment.description}}</td>
+          
+          
+          <td class="actions">
+            <button class="button delete"(click)="deleteAssignment(assignment)" ><i class="fas fa-trash-alt"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="pagination-controls-wrapper">
+      <!-- Pagination Controls -->
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+  

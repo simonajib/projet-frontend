@@ -1,0 +1,41 @@
+<div class="course-container" *ngIf="resource">
+    <div class="course-header">
+      <h2 class="course-title">{{ resource.title }}</h2>
+      <p class="course-type">{{ resource.type }} Study Material</p>
+    </div>
+  
+    <!-- Course content area -->
+    <div class="course-content">
+      <div class="course-description">
+        <p><strong>Description:</strong> Learn all about {{ resource.title }} in this module.</p>
+      </div>
+  
+      <!-- Action buttons for document or video resources -->
+      <div class="course-actions">
+        <button
+          class="course-btn"
+          *ngIf="resource.type === 'DOCUMENT'"
+          (click)="downloadResource(resource.resourceId!)"
+        >
+          Download Document 
+        </button>
+        <button
+          class="course-btn"
+          *ngIf="resource.type === 'VIDEO'"
+          (click)="playVideo(resource.resourceId!)"
+        >
+          Play Video
+        </button>
+      </div>
+  
+      <!-- Video player container for video resources -->
+      <div class="video-container" *ngIf="resource.type === 'VIDEO' && videoUrl">
+        <video
+          [src]="videoUrl"
+          controls
+          class="video-player"
+        ></video>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,438 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Subscriptions Section */
+/* Subscription Cards */
+.subscriptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.subscription {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+  position: relative;
+  padding: 1.5rem;
+  border: 1px solid transparent; /* Initial border for smooth transition */
+}
+
+.subscription::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  background: radial-gradient(circle, rgba(2, 136, 209, 0.2), transparent);
+  border-radius: 20px;
+  z-index: 0;
+  transition: opacity 0.3s;
+}
+
+.subscription:hover::before {
+  opacity: 0;
+}
+
+.subscription:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  background-color: #f0f8ff;
+}
+
+.subscription h2 {
+  background: linear-gradient(45deg, #0288d1, #03a9f4);
+  color: #fff;
+  margin: 0;
+  padding: 1rem;
+  font-size: 1.6rem;
+  border-radius: 0 0 20px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.subscription ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+}
+
+.subscription ul li {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  color: #333;
+  position: relative;
+  padding-left: 2rem;
+  font-weight: 500;
+}
+
+.subscription ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #0288d1;
+  font-size: 1.2rem;
+}
+
+.subscription p {
+  margin: 1rem 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.subscription button {
+  background: #0288d1;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.subscription button:hover {
+  background-color: #026aa7; /* Darker blue on hover */
+  transform: scale(1.05);
+}
+/* Subscription and Payment Form */
+.subscription-form-container {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  width: 100%;
+}
+
+.subscription-form-container h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.selected-plan-info {
+  background: #0288d1;
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  margin: 0 auto 1.5rem; /* Center the element and add bottom margin */
+  max-width: 500px; /* Restrict the width for better centering on larger screens */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.selected-plan-info:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.selected-plan-info h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.selected-plan-info p {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.flex-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.flex-row .form-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.subscription-type-buttons,
+.grade-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.subscription-type-buttons button,
+.grade-buttons button {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.subscription-type-buttons button.active,
+.grade-buttons button.active {
+  background: #0288d1;
+  color: #fff;
+  border-color: #0288d1;
+}
+/* Payment Form */
+.payment-container {
+  background: #f9f9f9;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.payment-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(2, 136, 209, 0.2), transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  transition: all 0.3s ease;
+}
+
+.payment-container:hover::before {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.payment-container h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 1;
+  position: relative;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #0288d1;
+  box-shadow: 0 0 10px rgba(2, 136, 209, 0.3);
+}
+
+button[type="submit"] {
+  background: #0288d1;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  z-index: 1;
+  position: relative;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+button[type="submit"]:hover {
+  background-color: #026aa7;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"]:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Subscription Type Selection */
+.form-group-type {
+  margin-bottom: 2rem;
+  text-align: center; /* Center-align the entire group */
+}
+
+.form-group-type label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.subscription-type-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap; /* Allow buttons to wrap in smaller screens */
+}
+
+.subscription-type-buttons button {
+  background: #f1f1f1;
+  color: #333;
+  border: 2px solid #ddd;
+  border-radius: 50px;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.subscription-type-buttons button.active {
+  background: #0288d1;
+  color: #fff;
+  border-color: #0288d1;
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.subscription-type-buttons button:hover {
+  background: #026aa7;
+  color: #fff;
+  border-color: #026aa7;
+  transform: scale(1.05);
+}
+/* Grade Level Selection */
+.form-group-grade {
+  margin-bottom: 2rem;
+}
+
+.form-group-grade label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.grade-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Flexible grid layout */
+  gap: 1rem;
+}
+
+.grade-buttons button {
+  background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+  color: #333;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.grade-buttons button:hover {
+  background: linear-gradient(135deg, #e0e0e0, #f5f5f5);
+  border-color: #999;
+  transform: scale(1.05);
+}
+
+
+.grade-buttons button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(45deg);
+  transition: transform 0.5s;
+}
+
+.grade-buttons button:hover::before {
+  transform: rotate(90deg);
+}
+
+.grade-buttons button.active {
+  background: linear-gradient(135deg, #0288d1, #026aa7);
+  color: #fff;
+  border-color: #0288d1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.grade-buttons button:hover {
+  transform: scale(1.05);
+}
+
+.grade-buttons button:active {
+  transform: scale(0.95);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}

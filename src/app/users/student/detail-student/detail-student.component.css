@@ -1,0 +1,135 @@
+/* Overall Container with Enhanced 3D Depth */
+.student-details-container {
+  background: linear-gradient(145deg, #e0e5ec, #ffffff);
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem auto;
+  width: 80%;
+  max-width: 700px;
+  box-shadow: 10px 10px 20px #d1d9e6, -10px -10px 20px #ffffff; /* Slightly deeper shadows */
+  position: relative;
+  font-family: 'Quicksand', sans-serif;
+  transform-style: preserve-3d;
+  animation: float 6s infinite alternate ease-in-out; /* Slower float for a smoother effect */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Header Styling with Animated Gradient Borders */
+.student-header, .parent-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.student-header h1, .parent-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  background: linear-gradient(90deg, #1e3c72, #2a5298, #dce35b, #45b649);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  border-bottom: 3px solid transparent;
+  animation: gradient-border 4s infinite; /* Slower gradient animation */
+}
+
+@keyframes gradient-border {
+  0% {
+    border-color: #1e3c72;
+  }
+  50% {
+    border-color: #dce35b;
+  }
+  100% {
+    border-color: #45b649;
+  }
+}
+
+/* Student Info with Enhanced 3D Effect and Glow */
+.student-info, .parent-info {
+  background: #f0f3f7;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff; /* Deeper inset shadow for stronger 3D effect */
+  margin-bottom: 1.5rem;
+  position: relative;
+  transform: translateZ(25px); /* More pronounced 3D effect */
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.student-info:hover, .parent-info:hover {
+  box-shadow: 6px 6px 20px #d1d9e6, -6px -6px 20px #ffffff;
+  transform: translateZ(30px) scale(1.02); /* Slight scale-up on hover */
+}
+.student-info h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+  letter-spacing: 1.5px;
+}
+
+/* Student Field Styling with Icon Highlights */
+.student-field, .parent-field {
+  margin: 0.75rem 0;
+  font-size: 1.1rem;
+  color: #37474f; /* Darker for better contrast */
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 2rem;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.student-field::before, .parent-field::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+  color: #45b649;
+  animation: pulse-icon 2s infinite; /* Slower pulse for a smoother effect */
+}
+
+@keyframes pulse-icon {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Loading Message with Typing Animation */
+.loading-message {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 2rem;
+  color: #607d8b;
+  display: inline-block;
+  animation: typing 4s steps(40, end) infinite; /* Slightly slower typing */
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  box-sizing: border-box;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Float Animation for 3D Effect */
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0);
+  }
+  100% {
+    transform: translateY(-8px) translateX(8px) rotate(0.5deg); /* Slightly less intense float */
+}
+}

@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="content">
+    <header>
+      <h1>Add Staff</h1>
+    </header>
+    <div class="staff-management">
+      <div class="tabs">
+        <button class="tab" routerLink="/user-list">All Staff</button>
+        
+      </div>
+      <br>
+      <form (ngSubmit)="addUser()">
+        <div class="form-group">
+          <label for="role">Role:</label>
+          <select id="role" name="role" [(ngModel)]="role" required>
+            <option value="ADMINISTRATOR">Administrator</option>
+            <option value="TEACHER">Teacher</option>
+            <option value="TUTOR">Tutor</option>
+          </select>
+        </div>
+
+       <!-- Conditional fields based on role selection -->
+<div *ngIf="role === 'ADMINISTRATOR'" class="role-section">
+  <h2>Administrator Details</h2>
+  <div class="form-group">
+    <label for="adminName">Name</label>
+    <input type="text" id="adminName" [(ngModel)]="newAdministrator.name" name="name" required>
+  </div>
+  <div class="form-group">
+    <label for="adminEmail">Email</label>
+    <input type="email" id="adminEmail" [(ngModel)]="newAdministrator.email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label for="adminPassword">Password</label>
+    <input type="password" id="adminPassword" [(ngModel)]="newAdministrator.password" name="password" required>
+  </div>
+  <div class="form-group">
+    <label for="adminDepartment">Department</label>
+    <input type="text" id="adminDepartment" [(ngModel)]="newAdministrator.department" name="department">
+  </div>
+  <div class="form-group">
+    <label for="adminOfficeNumber">Office Number</label>
+    <input type="tel" id="adminOfficeNumber" [(ngModel)]="newAdministrator.officeNumber" name="officeNumber">
+  </div>
+  <div class="form-group">
+    <label for="adminPhoneExtension">Phone Extension</label>
+    <input type="number" id="adminPhoneExtension" [(ngModel)]="newAdministrator.phoneExtension" name="phoneExtension">
+  </div>
+</div>
+
+<div *ngIf="role === 'TEACHER'" class="role-section">
+  <h2>Teacher Details</h2>
+  <div class="form-group">
+    <label for="teacherName">Name</label>
+    <input type="text" id="teacherName" [(ngModel)]="newTeacher.name" name="name" required>
+  </div>
+  <div class="form-group">
+    <label for="teacherEmail">Email</label>
+    <input type="email" id="teacherEmail" [(ngModel)]="newTeacher.email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label for="teacherPassword">Password</label>
+    <input type="password" id="teacherPassword" [(ngModel)]="newTeacher.password" name="password" required>
+  </div>
+  <div class="form-group">
+    <label for="teacherHireDate">Hire Date</label>
+    <input type="date" id="teacherHireDate" [(ngModel)]="newTeacher.hireDate" name="hireDate" required>
+  </div>
+  <div class="form-group">
+    <label for="teacherSubject">Subject</label>
+    <input type="text" id="teacherSubject" [(ngModel)]="newTeacher.subject" name="subject">
+  </div>
+</div>
+
+<div *ngIf="role === 'TUTOR'" class="role-section">
+  <h2>Tutor Details</h2>
+  <div class="form-group">
+    <label for="tutorName">Name</label>
+    <input type="text" id="tutorName" [(ngModel)]="newTutor.name" name="name" required>
+  </div>
+  <div class="form-group">
+    <label for="tutorEmail">Email</label>
+    <input type="email" id="tutorEmail" [(ngModel)]="newTutor.email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label for="tutorPassword">Password</label>
+    <input type="password" id="tutorPassword" [(ngModel)]="newTutor.password" name="password" required>
+  </div>
+  <div class="form-group">
+    <label for="tutorSubject">Subject</label>
+    <input type="text" id="tutorSubject" [(ngModel)]="newTutor.subject" name="subject">
+  </div>
+</div>
+
+
+        <button type="submit">Add User</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+/* General Styles */
+.dashboard-container {
+  padding: 20px;
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+h2 {
+  font-size: 28px;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 700;
+  background: -webkit-linear-gradient(#3498db, #8e44ad); /* Safari */
+  -webkit-background-clip: text; /* Safari */
+  -webkit-text-fill-color: transparent; /* Safari */
+  background: linear-gradient(#3498db, #8e44ad);
+  background-clip: text; /* Non-prefixed version */
+  color: transparent; /* For browsers that do not support background-clip: text */
+}
+
+/* Stat Grid Styles */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+/* Stat Item Styles */
+.stat-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
+}
+
+.stat-item::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.stat-item:hover::before {
+  opacity: 0.3;
+}
+
+.stat-item h3 {
+  font-size: 22px;
+  color: #2c3e50;
+  margin: 10px 0;
+  z-index: 1;
+  position: relative;
+}
+
+.stat-item p {
+  font-size: 20px;
+  color: #34495e;
+  margin: 0;
+  z-index: 1;
+  position: relative;
+}
+
+/* Icon Styles */
+.stat-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.stat-icon i {
+  font-size: 48px;
+  color: #3498db;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.stat-item:hover .stat-icon i {
+  color: #8e44ad;
+  transform: rotate(360deg);
+}

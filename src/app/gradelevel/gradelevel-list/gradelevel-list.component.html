@@ -1,0 +1,47 @@
+<div class="course-management">
+  <header>
+    <h1>Grade Levels</h1>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" routerLink="/grade-level-list">All Grade Level</button>
+    <button class="button add-user" routerLink="/add-grade-level"><i class="fas fa-graduation-cap"></i>+ Add Grade Level</button>
+  </div>
+
+  <!-- Search bar -->
+  <div class="search-bar">
+    <input 
+      type="text" 
+      placeholder="Search for grade levels..." 
+      [(ngModel)]="searchQuery" 
+      (input)="searchGradeLevel()">
+  </div>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Grade Level Name</th>
+        <th>Description</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let grade of filteredGradelevels | paginate: { itemsPerPage: 5, currentPage: p }">
+        <td>{{ grade.levelName }}</td>
+        <td>{{ grade.description }}</td>
+        <td>
+          <button class="button edit" [routerLink]="['/edit-grade-level', grade.gradeLevelId]"><i class="fas fa-edit"></i></button>
+        </td>
+        <td>
+          <button class="button delete"  (click)="deleteGradeLevel(grade)"><i class="fas fa-trash-alt"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!-- Pagination Controls -->
+  <div class="pagination-controls-wrapper">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="content">
+        <header>
+            <h1>Edit Grade Level</h1>
+        </header>
+        <div class="staff-management">
+            
+            <br>
+            <form>
+                <div class="hidden-field" hidden>
+                    <label for="classId">Grade Level ID:</label>
+                    <input type="number" [(ngModel)]="currentGradeLevel.gradeLevelId" name="classId" required readonly>
+                </div>
+                <div class="form-group">
+                    <label for="name">Grade Level Name:</label>
+                    <input type="text" [(ngModel)]="currentGradeLevel.levelName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" [(ngModel)]="currentGradeLevel.description" name="description" required>
+                </div>
+                <button type="submit" (click)="updateGradeLevel()" class="submit-button">Edit Class</button>
+            </form>
+        </div>
+    </div>
+</div>

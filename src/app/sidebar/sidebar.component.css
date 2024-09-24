@@ -1,0 +1,81 @@
+.sidebar {
+  width: 220px;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+.admin-logo {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.admin-logo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.admin-logo h2 {
+  margin: 10px 0 0;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.sidebar nav ul li {
+  width: 100%;
+}
+
+.sidebar nav ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 15px 20px;
+  display: flex; /* Updated to flex to align icon and text */
+  align-items: center; /* Center align items */
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar nav ul li a i {
+  margin-right: 10px; /* Space between icon and text */
+  font-size: 18px; /* Set icon size */
+}
+
+.sidebar nav ul li a.router-link-active,
+.sidebar nav ul li a:hover {
+  background-color: #0288d1;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebar nav ul {
+    padding: 0;
+  }
+
+  .sidebar nav ul li {
+    margin: 0;
+  }
+
+  .sidebar nav ul li a {
+    padding: 12px;
+    text-align: center;
+  }
+
+  .sidebar nav ul li a i {
+    margin-right: 0; /* Remove margin for mobile */
+  }
+}

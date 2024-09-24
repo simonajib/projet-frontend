@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="content">
+    <header>
+      <h1>Add New Resource</h1>
+    </header>
+    
+    <div class="staff-management">
+     
+     <br>
+
+      <!-- Success/Failure Messages -->
+      <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+
+      <!-- Resource Form -->
+      <form >
+        <div *ngFor="let resource of resources; let i = index" class="resource-form">
+          
+          <div class="form-group">
+            <label for="title{{i}}">Title</label>
+            <input type="text" id="title{{i}}" [(ngModel)]="resource.title" name="title{{i}}" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="type{{i}}">Type</label>
+            <select id="type{{i}}" [(ngModel)]="resource.type" name="type{{i}}" required>
+              <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="file{{i}}">Upload File</label>
+            <input type="file" id="file{{i}}" (change)="onFileSelected($event, i)" required>
+          </div>
+          
+          <div class="button-container">
+            <button type="button" class="remove-btn" (click)="removeResource(i)">Remove Resource</button>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="add-btn" (click)="addResourceForm()">Add Another Resource</button>
+          <button type="submit" class="submit-btn" (click)="addResources()">Add Resources</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

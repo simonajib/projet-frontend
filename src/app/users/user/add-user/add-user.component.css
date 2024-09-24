@@ -1,0 +1,222 @@
+/* General container styling */
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #f0f8ff, #e0ffff);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header styling */
+header {
+  margin-bottom: 20px;
+  position: relative;
+  text-align: center; /* Center the header text */
+}
+
+header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Tabs styling */
+.tabs {
+  display: flex;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.tab {
+  background: linear-gradient(45deg, #0288d1, #01579b);
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tab.active {
+  background-color: #4caf50;
+}
+
+.tab::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s;
+  z-index: 0;
+}
+
+.tab:hover::before {
+  opacity: 0.3;
+}
+
+.tab:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.tab:hover, .tab:focus {
+  outline: none;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+form div {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+form div label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+  transition: color 0.3s;
+}
+
+form div input {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form div input:focus {
+  border-color: #0288d1;
+  box-shadow: 0 0 8px rgba(0, 136, 212, 0.3);
+  outline: none;
+}
+
+/* Hide spin buttons and adjust appearance for number inputs */
+form div input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+  -webkit-appearance: textfield; /* WebKit browsers */
+  appearance: textfield; /* Standard */
+}
+
+form div input[type="number"]::-webkit-inner-spin-button,
+form div input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* WebKit browsers */
+  margin: 0;
+}
+
+/* Placeholder styling */
+form div input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Submit button styling */
+button[type="submit"] {
+  background: linear-gradient(45deg, #0288d1, #0277bd);
+  color: #fff;
+  border: none;
+  padding: 14px 25px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+button[type="submit"]::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+  z-index: 0;
+}
+
+button[type="submit"]:hover::before {
+  opacity: 0.2;
+}
+
+button[type="submit"]:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+button[type="submit"]:focus {
+  outline: none;
+}
+/* Select dropdown styling */
+.form-group select {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  background-image: linear-gradient(45deg, #f0f8ff, #e0ffff);
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  appearance: none;
+}
+
+/* Focus state for the select dropdown */
+.form-group select:focus {
+  border-color: #0288d1;
+  box-shadow: 0 0 8px rgba(0, 136, 212, 0.3);
+  outline: none;
+}
+
+/* Styling for the dropdown arrow */
+.form-group select::-ms-expand {
+  display: none; /* Removes default dropdown arrow in Internet Explorer */
+}
+
+/* Adjust appearance for browsers that show dropdown arrows */
+.form-group select {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCA0MCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2Ij48cGF0aCBkPSJNMTAsMTIgTDIwLDIyIEwzMCwxMiIgZmlsbD0iIzAwMDAwMCIgLz48L3N2Zz4=');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .tabs {
+    flex-direction: column;
+  }
+
+  .tab {
+    margin-bottom: 15px;
+  }
+}

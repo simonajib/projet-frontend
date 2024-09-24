@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="content">
+        <header>
+            <h1>Edit Cours</h1>
+        </header>
+        <div class="staff-management">
+           
+            <br>
+            <form>
+                <div hidden>
+                    <label for="coursId" hidden>Class ID:</label>
+                    <input type="number" [(ngModel)]="currentCours.coursId" name="coursId" required readonly>
+                </div>
+                <div>
+                    <label for="title">Cours title:</label>
+                    <input type="text" [(ngModel)]="currentCours.title" name="title" required>
+                </div>
+                <div>
+                    <label for="content">Content:</label>
+                    <input type="text" [(ngModel)]="currentCours.content" name="content" required>
+                </div>
+                <div>
+                    <label for="class">Class:</label>
+                    <select id="classId" name="classId" [(ngModel)]="newClassId">
+                      <option *ngFor="let class of classes" [value]="class.classId">
+                        {{class.name}}
+                      </option>
+                    </select>
+                  </div>
+                  <br>
+                <button type="submit" (click)="updateCours()">Edit Class</button>
+            </form>
+        </div>
+    </div>
+</div>

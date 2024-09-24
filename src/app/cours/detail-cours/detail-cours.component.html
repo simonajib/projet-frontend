@@ -1,0 +1,133 @@
+<div class="course-detail" *ngIf="course">
+    <!-- Course Title and Description -->
+    <header class="course-header">
+        <div class="course-title">
+          <h1>{{ course.title }}</h1>
+          <p class="course-description">{{ course.content }}</p>
+        </div>
+        <div class="course-meta">
+          <div class="meta-item">
+            <i class="fas fa-calendar-plus icon"></i>
+            <span><strong>Date de création :</strong> {{ course.createdDate | date: 'longDate' }}</span>
+          </div>
+          <div class="meta-item">
+            <i class="fas fa-calendar-check icon"></i>
+            <span><strong>Dernière mise à jour :</strong> {{ course.lastUpdatedDate | date: 'longDate' }}</span>
+          </div>
+        </div>
+      </header>
+      
+  
+    <!-- Class Information -->
+    <section class="class-info" *ngIf="course.classe">
+        <h2>Détails de la Classe</h2>
+        <div class="class-details">
+          <div class="class-detail-item">
+            <i class="fas fa-chalkboard-teacher icon"></i>
+            <div>
+              <h3>Classe</h3>
+              <p>{{ course.classe.name }}</p>
+            </div>
+          </div>
+          <div class="class-detail-item">
+            <i class="fas fa-book-open icon"></i>
+            <div>
+              <h3>Description</h3>
+              <p>{{ course.classe.description }}</p>
+            </div>
+          </div>
+          <div class="class-detail-item">
+            <i class="fas fa-user-tie icon"></i>
+            <div>
+              <h3>Professeur</h3>
+              <p>{{ course.classe.teacher?.name }}</p>
+            </div>
+          </div>
+          <div class="class-detail-item">
+            <i class="fas fa-graduation-cap icon"></i>
+            <div>
+              <h3>Niveau</h3>
+              <p>{{ course.classe.gradeLevel?.levelName }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Ressources -->
+
+      <section class="resources" *ngIf="course.resources && course.resources.length > 0">
+        <h2 class="resources-title">Ressources Disponibles</h2>
+        <div class="resource-list">
+          <div class="resource-card" *ngFor="let resource of course.resources">
+            <div class="resource-info">
+              <i class="resource-icon" [ngClass]="{'fa-solid fa-file': resource.type === 'DOCUMENT', 'fas fa-video': resource.type === 'VIDEO'}"></i>
+              <div>
+                <h3 class="resource-title">{{ resource.title }}</h3>
+                
+              </div>
+            </div>
+            <div class="resource-actions">
+              <button *ngIf="resource.type === 'DOCUMENT'" (click)="downloadResource(resource.resourceId!)" class="resource-button download-button">
+                Télécharger Document
+              </button>
+              <button *ngIf="resource.type === 'VIDEO'" (click)="playVideo(resource.resourceId!)" class="resource-button play-button">
+                Lire Vidéo
+              </button>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Video Player (only if a video is selected) -->
+        <div class="video-player-container" *ngIf="videoUrl">
+          <div class="video-player">
+            <video [src]="videoUrl" controls></video>
+          </div>
+        </div>
+      </section>
+      
+  
+    <!-- Assignments -->
+    <section class="assignments" *ngIf="course.assignments && course.assignments.length > 0">
+        <h2 class="assignments-title">Devoirs à Réaliser</h2>
+        <div class="assignment-list">
+          <div class="assignment-card" *ngFor="let assignment of course.assignments">
+            <div class="assignment-header">
+              <i class="fas fa-tasks assignment-icon"></i>
+              <h3 class="assignment-title">{{ assignment.title }}</h3>
+            </div>
+            <p class="assignment-description">{{ assignment.description }}</p>
+          </div>
+        </div>
+      </section>
+      
+  
+    <!-- Quizzes -->
+    <section class="quizzes" *ngIf="course.quizzes && course.quizzes.length > 0">
+        <h2 class="quizzes-title">Quiz Interactifs</h2>
+        <div class="quiz-card" *ngFor="let quiz of course.quizzes">
+          <header class="quiz-header">
+            <h3 class="quiz-title">{{ quiz.title }}</h3>
+            <p class="quiz-description">{{ quiz.quizDescription }}</p>
+          </header>
+          <div class="quiz-questions">
+            
+            <ul class="questions-list">
+              <li *ngFor="let question of quiz.questions" class="question-item">
+                <div class="question-content">
+                  <p class="question-text"><strong>Question :</strong> {{ question.content }}</p>
+                  <ul class="choices-list">
+                    <li *ngFor="let choice of question.choices" class="choice-item">
+                      <i class="far fa-dot-circle choice-icon"></i> {{ choice }}
+                    </li>
+                  </ul>
+                  <p class="correct-answer"><i class="icon fas fa-check-circle"></i><strong>Réponse correcte :</strong>&nbsp;{{ question.correctAnswer }}</p>
+                  <p class="explanation"><i class="icon fas fa-info-circle"></i><strong>Explication :</strong>&nbsp;{{ question.explanation }}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+  </div>
+  

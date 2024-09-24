@@ -1,0 +1,36 @@
+<div class="quiz-detail">
+    <header class="quiz-header">
+        <div class="header-content">
+          <h1 class="quiz-title">{{ quiz?.title }}</h1>
+          <p class="quiz-description">{{ quiz?.quizDescription }}</p>
+          <div class="quiz-info">
+            <p class="quiz-type"><span>{{ quiz?.quizType }}</span></p>
+          </div>
+        </div>
+      </header>
+      
+  
+    <section class="questions">
+      <h2 class="questions-title">Questions</h2>
+      <br>
+      <ul class="questions-list">
+        <li *ngFor="let question of questions" class="question-card">
+          <p class="question-content">{{ question.content }}</p>
+          <ul class="choices-list">
+            <li *ngFor="let choice of question.choices" class="choice-item">{{ choice }}</li>
+          </ul>
+          <p class="correct-answer">
+            <i class="icon fas fa-check-circle"></i>
+            Correct Answer: <span>{{ question.correctAnswer }}</span>
+          </p>
+          <p class="explanation">
+            <i class="icon fas fa-info-circle"></i>
+            Explanation: <span>{{ question.explanation }}</span>
+          </p>
+          
+          
+        </li>
+      </ul>
+    </section>
+  </div>
+  

@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="content">
+      <header>
+        <h1>Add Assignment</h1>
+      </header>
+      <div class="staff-management">
+        <br>
+        <form (ngSubmit)="submitAssignments()">
+          <div *ngFor="let assignment of assignments; let i = index" class="resource-form">
+            <div class="form-group">
+              <label for="title">Assignment Title:</label>
+              <input type="text" [(ngModel)]="assignment.title" name="title{{i}}" required>
+            </div>
+            <div class="form-group">
+              <label for="description">Assignment Description:</label>
+              <input type="text" [(ngModel)]="assignment.description" name="description{{i}}" required>
+            </div>
+            <div class="button-container">
+              <button type="button" class="remove-btn" (click)="removeAssignmentForm(i)" *ngIf="assignments.length > 1">Remove Assignment</button>
+            </div>
+          </div>
+  
+          <!-- Display error message if fields are empty -->
+          <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  
+          <div class="form-actions">
+            <button type="button" class="add-btn" (click)="addAssignmentForm()">Add Another Assignment</button>
+            <button type="submit" class="submit-btn">Submit All Assignments</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

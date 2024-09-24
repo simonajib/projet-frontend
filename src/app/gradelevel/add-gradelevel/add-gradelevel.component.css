@@ -1,0 +1,110 @@
+/* General container styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #f0f8ff, #e0ffff);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Header styling */
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Staff management section */
+  .staff-management {
+    margin-top: 20px;
+  }
+  
+  /* Form styling */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds spacing between form fields */
+    position: relative;
+  }
+  
+  /* General form field group styling */
+  form div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Label styling */
+  form label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+  
+  /* Input field styling */
+  form input {
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    width: 100%;
+  }
+  
+  /* Focus effect for input fields */
+  form input:focus {
+    border-color: #0288d1;
+    box-shadow: 0 0 8px rgba(0, 136, 212, 0.3);
+    outline: none;
+  }
+  
+  /* Submit button styling */
+  button[type="submit"] {
+    background: linear-gradient(45deg, #0288d1, #0277bd);
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  /* Hover effect for the submit button */
+  button[type="submit"]:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  }
+  
+  button[type="submit"]:focus {
+    outline: none;
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+    }
+  
+    form {
+      gap: 15px;
+    }
+  
+    button[type="submit"] {
+      font-size: 16px;
+    }
+  }
+  

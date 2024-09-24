@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="content">
+    <header class="header">
+      <h1 class="header-title">User Details</h1>
+    </header>
+
+    <div *ngIf="currentUser" class="user-details">
+      <h2 class="user-name">{{ currentUser.name }}</h2>
+      <div class="user-info">
+        <p class="user-email">
+          <strong><i class="fas fa-envelope"></i> Email:</strong> {{ currentUser.email }}
+        </p>
+      </div>
+
+      <!-- Role-based details -->
+      <div class="roles">
+        <div *ngIf="currentTeacher" class="details-card teacher animate-card">
+          <h3 class="details-title">
+            <i class="fas fa-chalkboard-teacher"></i> Teacher
+          </h3>
+          <p>
+            <strong><i class="fas fa-calendar-day"></i> Hire Date:</strong>
+            {{ currentTeacher.hireDate | date:'dd/MM/yyyy' }}
+          </p>
+          <p>
+            <strong><i class="fas fa-book-open"></i> Subject:</strong> {{ currentTeacher.subject }}
+          </p>
+        </div>
+      
+        <div *ngIf="currentTutor" class="details-card tutor animate-card">
+          <h3 class="details-title">
+            <i class="fas fa-user-graduate"></i> Tutor
+          </h3>
+          <p>
+            <strong><i class="fas fa-book"></i> Subject:</strong> {{ currentTutor.subject }}
+          </p>
+        </div>
+      
+        <div *ngIf="currentAdministrator" class="details-card administrator animate-card">
+          <h3 class="details-title">
+            <i class="fas fa-user-shield"></i> Administrator
+          </h3>
+          <p>
+            <strong><i class="fas fa-building"></i> Department:</strong> {{ currentAdministrator.department }}
+          </p>
+          <p>
+            <strong><i class="fas fa-door-open"></i> Office Number:</strong> {{ currentAdministrator.officeNumber }}
+          </p>
+          <p>
+            <strong><i class="fas fa-phone-alt"></i> Phone Extension:</strong> {{ currentAdministrator.phoneExtension }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!currentUser" class="loading">
+      <p>Loading user details...</p>
+    </div>
+  </div>
+</div>

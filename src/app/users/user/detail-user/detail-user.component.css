@@ -1,0 +1,159 @@
+/* Container styling with a gradient background */
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 25px;
+  background: linear-gradient(135deg, #f5f7fa, #eaeefc);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* Header with animation */
+.header {
+  background: linear-gradient(135deg, #6d83f5, #4b6ff5);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.header-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+/* User details card */
+.user-details {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 35px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  position: relative;
+  animation: fadeInUp 0.8s ease;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Role-specific cards */
+.roles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.details-card {
+  background: linear-gradient(135deg, #f0f4f8, #fff);
+  padding: 25px;
+  flex: 1;
+  margin: 20px 0;
+  min-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.animate-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* User-specific colors */
+.teacher {
+  background: linear-gradient(135deg, #ffa3a8, #ffc5d6);
+}
+
+.tutor {
+  background: linear-gradient(135deg, #9fb4eb, #d0e1fc);
+}
+
+.administrator {
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+}
+
+/* Styling for user name */
+.user-name {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: 1.5px;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Email styling */
+.user-email {
+  font-size: 1.3rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+/* Loader */
+.loading {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #999;
+}
+
+.loading p {
+  animation: loadingBlink 1.5s linear infinite;
+}
+
+@keyframes loadingBlink {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .roles {
+    flex-direction: column;
+  }
+  
+  .details-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .header-title {
+    font-size: 2.2rem;
+  }
+
+  .user-name {
+    font-size: 2rem;
+  }
+}

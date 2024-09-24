@@ -1,0 +1,60 @@
+<div class="course-management">
+  <header>
+    <h1>Courses</h1>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" routerLink="/cours-list">All Courses</button>
+    <button  class="button add-user" routerLink="/add-cours"><i class="fas fa-book"></i>+ Add Course</button>
+  </div>
+
+  <!-- Search bar -->
+  <div class="search-bar">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      (input)="filterCourses()"
+      placeholder="Search for courses..."/>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        
+        <th>Title</th>
+        <th>Content</th>
+       
+        <th>Last Updated </th>
+        <th>Class</th>
+        <th></th>
+
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of filteredCourses | paginate: { itemsPerPage: 5, currentPage: p }">
+        
+        <td>{{ course.title }}</td>
+        <td>{{ course.content }}</td>
+       
+        <td>{{ course.lastUpdatedDate | date : 'dd/MM/yyyy' }}</td>
+        <td>{{ course.classe?.name || 'None' }}</td>
+        <td >
+          <button class="button detail" [routerLink]="['/detail-cours', course.coursId]"><i class="fas fa-eye"></i></button>
+          </td>
+        <td class="actions">
+          <button class="button edit" [routerLink]="['/edit-cours', course.coursId]"><i class="fas fa-edit"></i></button>
+          </td>
+          <td>
+          <button class="button delete" (click)="deleteCours(course)"><i class="fas fa-trash-alt"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination-controls-wrapper">
+    <!-- Pagination Controls -->
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

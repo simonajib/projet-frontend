@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="content">
+    <header>
+      <h1>Add Course</h1>
+    </header>
+    <div class="staff-management">
+    
+      <br>
+      <form >
+        <div hidden>
+          <label for="coursId" >Course ID:</label>
+          <input type="number" [(ngModel)]="newCours.coursId" name="coursId" required>
+        </div>
+        <div>
+          <label for="title">Course Title:</label>
+          <input type="text" [(ngModel)]="newCours.title" name="title" required>
+        </div>
+        <div>
+          <label for="content">Content:</label>
+          <input type="text" [(ngModel)]="newCours.content" name="content" required>
+        </div>
+        <div>
+          <label for="class">Class:</label>
+          <select id="classId" name="classId" [(ngModel)]="newClassId">
+            <option *ngFor="let class of classes" [value]="class.classId">
+              {{class.name}} / {{class.gradeLevel?.levelName}}
+            </option>
+          </select>
+        </div>
+        <br>
+        <button type="submit" (click)="addCours()">Add Course</button>
+      </form>
+    </div>
+  </div>
+</div>

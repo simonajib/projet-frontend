@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="content">
+        <header>
+            <h1>Add Grade Level</h1>
+        </header>
+        <div class="staff-management">
+           
+           
+            <form >
+                <div hidden>
+                    <label for="gradeLevelId">Grade Level ID:</label>
+                    <input type="number" [(ngModel)]="newGradeLevel.gradeLevelId" name="gradeLevelId" required>
+                </div>
+                <div>
+                    <label for="levelName">Grade Level Name:</label>
+                    <input type="text" [(ngModel)]="newGradeLevel.levelName" name="levelName" required>
+                </div>
+                <div>
+                    <label for="description">Description:</label>
+                    <input type="text" [(ngModel)]="newGradeLevel.description" name="description" required>
+                </div>
+            
+                <button type="submit" (click)="addGradeLevel()">Add Class</button>
+            </form>
+        </div>
+    </div>
+  </div>
+  

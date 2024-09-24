@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="content">
+    <header>
+      <h1>Add  Quiz</h1>
+    </header>
+    <br>
+    <div class="quiz-management">
+      <!-- Success/Failure Messages -->
+      <!-- Uncomment if you need messages
+      <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>-->
+
+      <!-- Quiz Form -->
+      <form (ngSubmit)="addQuiz()" #quizForm="ngForm">
+        <!-- Quiz Details -->
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input id="title" name="title" [(ngModel)]="newQuiz.title" placeholder="Enter quiz title" required />
+        </div>
+        
+        <div class="form-group">
+          <label for="type">Type:</label>
+          <select id="type" name="type" [(ngModel)]="newQuiz.quizType" required>
+            <option *ngFor="let type of quizTypes" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+        
+        <!-- <div class="form-group">
+          <label for="dueDate">Due Date:</label>
+          <input id="dueDate" name="dueDate" type="date" [(ngModel)]="newQuiz.dueDate" required />
+        </div> -->
+        
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" [(ngModel)]="newQuiz.quizDescription" rows="4" required></textarea>
+        </div>
+
+        <!-- Questions Section -->
+        <div *ngFor="let question of questions; let i = index" class="question-form">
+          <div class="form-group">
+            <label for="question{{i}}">Question {{ i + 1 }}:</label>
+            <input id="question{{i}}" [(ngModel)]="question.content" name="questionContent{{i}}" placeholder="Enter question content" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="correctAnswer{{i}}">Correct Answer:</label>
+            <input id="correctAnswer{{i}}" [(ngModel)]="question.correctAnswer" name="correctAnswer{{i}}" placeholder="Enter correct answer" required />
+          </div>
+
+          <div class="form-group">
+            <label for="explanation{{i}}">Explanation:</label>
+            <textarea id="explanation{{i}}" [(ngModel)]="question.explanation" name="explanation{{i}}" rows="3" placeholder="Enter explanation"></textarea>
+          </div>
+
+          <div *ngFor="let choice of question.choices || []; let j = index" class="choice-form">
+            <div class="form-group">
+              <label>Choice {{ j + 1 }}:</label>
+              <textarea 
+                [(ngModel)]="question.choices![j]" 
+                name="choice{{i}}_{{j}}" 
+                rows="3" 
+                placeholder="Enter choice text">
+              </textarea>
+            </div>
+            <button type="button" class="remove-btn" (click)="removeChoice(question, j)">Remove Choice</button>
+          </div>
+          <div class="button-container">
+            <button type="button" class="add-btn" (click)="addChoice(question)">Add Choice</button>
+            <button type="button" class="remove-btn" (click)="removeQuestion(i)">Remove Question</button>
+          </div>
+          
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="add-btn" (click)="addQuestion()">Add Question</button>
+          <button type="submit" class="submit-btn">Submit Quiz</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

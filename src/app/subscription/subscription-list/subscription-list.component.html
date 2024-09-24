@@ -1,0 +1,42 @@
+<div class="course-management">
+    <header>
+      <h1>Subscriptions</h1>
+    </header>
+  
+   <br>
+    <!-- Search bar -->
+    <div class="search-bar">
+      <input 
+        type="text" 
+        placeholder="Search for subscriptions..." 
+        [(ngModel)]="searchQuery"
+        (ngModelChange)="onSearch()"
+      >
+    </div>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Student Name</th>
+          <th>Type</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let subscription of filteredSubscription | paginate: { itemsPerPage: 5, currentPage: p }">
+          <td>{{ subscription.payment?.student?.name }}</td>
+          <td>{{ subscription.type}}</td>
+          <td>
+            <button class="button edit"[routerLink]="['/detail-subscription', subscription.subscriptionId]"><i class="fas fa-eye"></i></button>
+          </td>
+          
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Pagination Controls -->
+    <div class="pagination-controls-wrapper">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+  

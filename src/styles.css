@@ -1,1 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+}
+
+app-navbar {
+  height: 60px;
+  background: linear-gradient(221deg, #002D62 0%, #004080 50%, #0059B2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
+app-sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, #002D62, #004080, #0059B2, #0073E6); /* Matching the navbar gradient */
+  color: white;
+  position: fixed;
+  top: 60px; /* Adjust to sit below the navbar */
+  left: 0;
+  height: calc(100vh - 60px); /* Full height minus navbar height */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Adding shadow for consistency */
+  overflow-y: auto; /* Allows scrolling within the sidebar if needed */
+  z-index: 1000; /* Ensure it's above the content */
+}
+
+.main-content {
+  margin-top: 60px; /* Space for the navbar */
+  margin-left: 220px; /* Space for the sidebar */
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto; /* Allows scrolling within the content area */
+  background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  app-sidebar {
+    width: 100%;
+    position: static; /* Sidebar is static on smaller screens */
+    height: auto;
+    margin-top: 0; /* No need to account for navbar height on small screens */
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+}

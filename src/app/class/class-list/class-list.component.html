@@ -1,0 +1,52 @@
+<div class="course-management">
+  <header>
+    <h1>Classes</h1>
+  </header>
+
+  
+      <div class="tabs">
+        <button class="tab active" routerLink="/class-list">All Classes</button>
+        <button class="button add-user" routerLink="/add-class"><i class="fas fa-school"></i> + Add Class</button>
+      </div>
+      <!-- Search bar -->
+      <div class="search-bar">
+        <input 
+          type="text" 
+          placeholder="Search for classes..." 
+          [(ngModel)]="searchQuery" 
+          (input)="searchClasses()">
+      </div>
+      <table>
+        <thead>
+            <tr>
+                
+                <th>Class Name</th>
+                <th>Description</th>
+                <th>GradeLevel</th>
+                <th>Teacher</th>
+                <th></th>
+                 <th></th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let class of filteredClasses | paginate: { itemsPerPage: 5, currentPage: p }">
+            <td>{{ class.name }}</td>
+            <td>{{ class.description }}</td>
+            <td>{{ class.gradeLevel?.levelName }}</td>
+            <td>{{ class.teacher?.name }}</td>
+            <td>
+              <button class="button edit" [routerLink]="['/edit-class', class.classId]"><i class="fas fa-edit"></i></button>
+            </td>
+            <td>
+              <button class="button delete" (click)="deleteClass(class)"><i class="fas fa-trash-alt"></i></button>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+    
+      <!-- Pagination Controls -->
+      <div class="pagination-controls-wrapper">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+
